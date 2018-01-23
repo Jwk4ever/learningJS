@@ -1,11 +1,35 @@
 //console.log('hello MEITUAN');
 
-let Tool = (function(){
+var Tool = (function(){
 	
-	let firstMethod = () => 'Hello !'
+	/**
+	*
+	*
+	*/
+	function Jtypeof(){
+
+	} 
+
+	/**
+	* 
+	*
+	*/
+	function JstrTrans(str,type){
+
+	}
+
+	/**
+	*
+	*
+	*/
+	function Jfilter(){
+
+	}
 
 	return {
-		firstMethod: firstMethod
+		Jtypeof: Jtypeof,
+		JstrTrans: JstrTrans,
+		Jfilter: JstrTrans
 	}
 })()
 
