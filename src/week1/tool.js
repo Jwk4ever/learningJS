@@ -1,6 +1,6 @@
 //建立简单类库
 
-var A = (function(){
+module.exports = (function(){
 	//定义私有变量
 	var ArrProto = Array.prototype,
 		StrProto = String.prototype,
