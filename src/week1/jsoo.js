@@ -83,7 +83,10 @@ Person.prototype.sayName = function(){
 
 //function Person(){}
 
-//构造和原型
+
+
+//原型链和借用构造函数
+//组合继承
 
 function Person(name,age,job){
 	this.name = name;
@@ -91,21 +94,22 @@ function Person(name,age,job){
 	this.job = job;
 }
 
-Person.prototype.sayName(){
+Person.prototype.sayName = function(){
 	console.log(this.name);
 }
 
-function Me(name,age,job,school){
+function Student(name,age,job,school){
 	Person.call(this,name,age,job);
 	this.school = school;
 }
 
-Me.prototype = new Person();
+Student.prototype = new Person();
 //Me.prototype.constructor = Me;
-Object.defineProperty(Me,'constructor',{
-	value: Me,
+Object.defineProperty(Student.prototype,'constructor',{
+	value: Student,
 	enumerable: false
 });
+
 
 //实现继承
 
@@ -120,3 +124,31 @@ function inherit(sup,sub){
 //console.dir(person);
 
 //es6
+
+class People{
+	constructor(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	sayName(){
+		console.log(this.name)
+	}
+}
+
+class Worker extends People{
+	constructor(name,age,job){
+		super(name,age);
+		this.job = job;
+	}
+}
+
+var jack = new Worker('jack',12,'software enigneer');
+jack.sayName();
+
+//函数表达式
+
+
+
+
+
+

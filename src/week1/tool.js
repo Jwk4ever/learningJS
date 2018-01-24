@@ -41,7 +41,7 @@ module.exports = (function(){
 			if(arg1 === arg2){
 				return 1/arg1 === 1/arg2 ;
 			}else{
-				return arg1.toString() === 'NaN' && arg2.toString() === 'NaN';
+				return arg1 != arg1 && arg2 != arg2;
 			}
 		},
 		//深拷贝
@@ -68,7 +68,16 @@ module.exports = (function(){
 		random : function(lowerValue, upperValue){
 			return Math.floor(Math.random()*(upperValue - lowerValue)) + lowerValue;
 		},
+		//选择Dom元素
+		selectDom : function(str){
+			if(this === window){
+				return document.querySelectorAll(str);
+			}
+		},
+		//计时器
+		Timer : function(){
 
+		}
 	}
 })();
 
