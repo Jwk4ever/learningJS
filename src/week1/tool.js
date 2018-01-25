@@ -77,6 +77,14 @@ module.exports = (function(){
 		//计时器
 		Timer : function(){
 
+		},
+		//选择器 
+		select : function(str){
+			var node = document.querySelectorAll(str);
+		},
+		//css
+		css : function(str){
+			
 		}
 	}
 })();
