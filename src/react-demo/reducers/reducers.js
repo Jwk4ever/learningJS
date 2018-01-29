@@ -26,11 +26,11 @@ function todos (state = [], actions) {
 			//console.log([...state.slice(0,actions.id)]);
 			//console.log([...state.slice(actions.id)]);
 			return [
-				...state.slice(0,actions.id - 1),
+				...state.slice(0,actions.id),
 				Object.assign({},state[actions.id],{
-					completed: !state[actions.id].completed,
+					completed: true,
 				},
-				...state.slice(actions.id))
+				...state.slice(actions.id + 1))
 			];
   		default:
 			return state;

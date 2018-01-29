@@ -46,3 +46,10 @@ UI事件
 #### 内存和性能
 事件委托：利用事件冒泡，指定一个事件处理程序管理某一类型的所有事件
 
+#### 模拟事件
+`createEvent()` 输入参数 UIEvents、MouseEvents、MutationEvents、HTMLEvents
+`dispatchEvent()` 触发事件
+ 
+
+
+

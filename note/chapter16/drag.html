@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drag示例</title>
+</head>
+<body>
+	<div id="container" class="container">
+		<div id="target" class="target"></div>
+		<ul id="list">
+			<li id="1" class="item"></li>
+			<li id="2" class="item"></li>
+			<li id="3" class="item"></li>
+			<li id="4" class="item"></li>
+			<li id="5" class="item"></li>
+		</ul>
+	</div>
+	<script>
+		function $(str){
+			return document.querySelectorAll(str);
+		}
+
+		// function han(){
+		// 	function a(){
+		// 		console.log(this)
+		// 	}
+		// 	a();
+		// }
+		// han();
+
+		function a(){
+			var b = 'asd'
+			return {
+				t:b
+			}
+		}
+
+		var t = a()
+		console.log(t.t);
+	</script>
+</body>
+</html>

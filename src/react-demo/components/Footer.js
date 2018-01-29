@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React ,{ Component }from 'react'
+import PropTypes from 'prop-types'
 
 export default class Footer extends Component {
 	render() {
@@ -7,9 +8,9 @@ export default class Footer extends Component {
 				Show:
 				{' '}
 				{ this.renderFilter('SHOW_ALL','All')}
-				{','}
+				{', '}
 				{ this.renderFilter('SHOW_COMPLETED','COMPLETED') }
-				{','}
+				{', '}
 				{ this.renderFilter('SHOW_ACTIVE','ACTIVE') }
 				.
 			</p>
@@ -17,7 +18,7 @@ export default class Footer extends Component {
 	}
 
 	renderFilter(filter, name) {
-		if( filter === this.props.name ){
+		if( filter === this.props.filter ){
 			return name
 		}
 
@@ -30,11 +31,11 @@ export default class Footer extends Component {
 	}
 }
 
-// Footer.propTypes = {
-// 	onFilterChange: PropTypes.func.isRequired,
-// 	name: PropTypes.oneOf([
-// 		'SHOW_ALL',
-// 		'SHOW_ACTIVE',
-// 		'SHOW_COMPLETED'
-// 	]).isRequired
-// }
+Footer.propTypes = {
+	onFilterChange: PropTypes.func.isRequired,
+	filter: PropTypes.oneOf([
+		'SHOW_ALL',
+		'SHOW_ACTIVE',
+		'SHOW_COMPLETED'
+	]).isRequired
+}

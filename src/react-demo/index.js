@@ -10,7 +10,7 @@ let root = document.getElementById('root');
 
 let store = createStore(todoApp);
 
-console.log(store);
+//console.log(store);
 
 render(
 	<Provider store = { store }>
