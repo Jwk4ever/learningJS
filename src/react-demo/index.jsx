@@ -10,8 +10,6 @@ let root = document.getElementById('root');
 
 let store = createStore(todoApp);
 
-//console.log(store);
-
 render(
 	<Provider store = { store }>
 		<App />
@@ -19,5 +17,13 @@ render(
 		,
 	root
 )
+
+// import React ,{ Component }from 'react'
+// import { render } from 'react-dom'
+
+// let root = document.getElementById('root');
+
+
+
 
 

@@ -3,7 +3,7 @@ const webpack = require('webpack'),
 	  htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: path.resolve(__dirname,'./src/react-demo/index.js'),
+	entry: path.resolve(__dirname,'./src/react-demo/index.jsx'),
 	output: {
 		path: path.resolve(__dirname,'./build'),
 		filename: 'bundle.js'
