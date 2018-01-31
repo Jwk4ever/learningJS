@@ -5,13 +5,31 @@
 	<title>test</title>
 </head>
 <body>
-<!-- 	<script src='src/week1/tool.js'></script>
-	<script	src='src/week1/_like.js'></script> -->
+	<!-- <script src='src/week1/tool.js'></script> -->
+	<script	src='src/Tools/tool.js'></script>
 	<script src='node_modules/underscore/underscore.js'></script>
 	<script>
 		//console.log(J);
 		//console.log(typeof _);
-		
+
+		function openIndexDB(name){
+			return new Promise((resolve, reject) => {
+				let request = indexedDB.open(name);
+				request.onerror = (event) => {
+					resolve(event.target.errorCode);
+				};
+				request.onsuccess = (event) => {
+					resolve(event.target.result);
+				}
+			})
+		}
+		let IndexDB = openIndexDB('admin');
+
+		IndexDB.then((dataBase)=>{
+			console.log(dataBase);
+		},(errorCode)=>{
+			console.log(`Something bad happened while trying to open ${ errorCode }`);
+		})
 	</script>
 </body>
 </html>

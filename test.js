@@ -61,6 +61,8 @@ let a = store.subscribe(()=>{
 store.dispatch(action);
 
 a();
-//console.log(a);
+console.log(a);
+
+
 
 

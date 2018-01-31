@@ -20,6 +20,24 @@ module.exports = (function(){
 				return arr;
 			}
 		},
+		//挑选对象属性值，返回新对象
+		pick: function(obj){
+			var names = this.toArray(arguments).slice(1),
+				target = {};
+			for(var i = 1, len = names.length; i < len; i++){
+				var key = names[i];
+				target[key] = obj[key];
+			}
+			return target;
+		},
+		//数组中查询元素位置
+		ArrayFindIndex: function(arr, ele){
+			for(let i = 0, len = arr.length; i < len; i++){
+				if(arr[i] === ele){
+					return i;
+				}  
+			}
+		},
 		//类型检测
 		typeOf:function(arg){
 			if(typeof arg === 'object'){
@@ -65,26 +83,46 @@ module.exports = (function(){
 			return newObj
 		},
 		//返回随机数
-		random : function(lowerValue, upperValue){
+		random: function(lowerValue, upperValue){
 			return Math.floor(Math.random()*(upperValue - lowerValue)) + lowerValue;
 		},
 		//选择Dom元素
-		selectDom : function(str){
+		selectDom: function(str){
 			if(this === window){
 				return document.querySelectorAll(str);
 			}
 		},
+		//ajax 请求, 返回Promise对象
+		ajax: function(url, method, data = null){
+			let xhr = new XMLHttpRequest();
+			return new Promise(function(resolve, reject){
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4 && xhr.status == 200){
+						resolve(xhr.responseText)
+					}else{
+						reject(xhr.status)
+					}
+				}
+				xhr.open(method, url, true);
+				xhr.send(data)
+			});
+		}
+		,
+		//lazyload 懒加载图片
+		lazyload:function(url){
+
+		},
 		//计时器
-		Timer : function(){
+		Timer: function(){
 
 		},
 		//选择器 
-		select : function(str){
+		select: function(str){
 			var node = document.querySelectorAll(str);
 		},
 		//css
-		css : function(str){
-			
+		css: function(dom, str){
+			return dom.classList;
 		}
 	}
 })();

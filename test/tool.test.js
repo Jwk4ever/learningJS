@@ -1,6 +1,6 @@
 //tool.js 功能测试
 
-var tool = require('../src/week1/tool.js');
+var tool = require('../src/Tools/tool.js');
 var expect = require('chai').expect;
 
 
@@ -28,3 +28,20 @@ describe('数字相等检测',function(){
 // 		expect(tool.toArray(arr)).t
 // 	})
 // })
+describe('转化为数组',function(){
+	it('多位输入转化为数组',function(){
+		expect(tool.toArray(1,2,3,4,5)).to.be.equal([1,2,3,4,5]);
+	})
+})
+
+
+describe('对象选择属性输出',function(){
+	var user = {
+		name: 'jiaweikang',
+		age: 15,
+		sex: 'male'
+	}
+	it('选择对象相等',function(){
+		expect(tool.pick(user,'name','age')).to.be.equal({name: 'jiaweikang',age: 15});
+	})
+})
