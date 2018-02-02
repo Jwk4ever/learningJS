@@ -4,16 +4,17 @@ import Todo from './Todo'
 
 export default class TodoList extends Component {
 	render (){
-		//console.log(this.props);
-		console.log(typeof this.props.onTodoClick);
+		//console.log(this.props.onTodoClick instanceof Function)
 		return (
 			<ul>
-				{ this.props.todos.map((todo, id) => 
-					<Todo 
+				{ this.props.todos.map((todo, id) => {
+					//console.log(this.props.onTodoClick);
+					return (<Todo 
 						{...todo} 
 						key = {id}
-						onClick = { () => this.props.onTodoClick(id) }
-					></Todo>
+						onClick = { () => this.props.onTodoClick(id)}
+					></Todo>)
+				}
 				)}
 			</ul>
 		)
@@ -21,7 +22,7 @@ export default class TodoList extends Component {
 } 
 
 TodoList.propTypes = {
-	onTodoClick: PropTypes.func.isReuqired,
+	//onTodoClick: PropTypes.func.isReuqired,
 	todos: PropTypes.arrayOf(PropTypes.shape({
 		text: PropTypes.string.isRequired,
 		completed: PropTypes.bool.isRequired

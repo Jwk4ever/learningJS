@@ -5,6 +5,8 @@ import AddTodo from '../components/AddTodo'
 import TodoList from '../components/TodoList'
 import Footer from '../components/Footer'
 import { connect } from 'react-redux' 
+import { createSelector } from 'reselect'
+
 
 class App extends Component {
 	render () {
@@ -55,7 +57,7 @@ function selectTodos(todos, filter){
 		case VisibilityFilters.SHOW_COMPLETED:
 			return todos.filter(todo => todo.completed) 
 		case VisibilityFilters.SHOW_ACTIVE:
-			return todos.filter(todo => todo.active)
+			return todos.filter(todo => ! todo.completed)
 	} 
 }
 

@@ -20,16 +20,6 @@ module.exports = (function(){
 				return arr;
 			}
 		},
-		//挑选对象属性值，返回新对象
-		pick: function(obj){
-			var names = this.toArray(arguments).slice(1),
-				target = {};
-			for(var i = 1, len = names.length; i < len; i++){
-				var key = names[i];
-				target[key] = obj[key];
-			}
-			return target;
-		},
 		//数组中查询元素位置
 		ArrayFindIndex: function(arr, ele){
 			for(let i = 0, len = arr.length; i < len; i++){
@@ -37,6 +27,40 @@ module.exports = (function(){
 					return i;
 				}  
 			}
+		},
+		//数组相等
+		isArrayEqual: function(arr1, arr2){
+			if(arr1 === arr2)return true;
+			if(arr1.length !== arr2.length) return false;
+			for(var i = 0, len = arr1.length; i < len; i++){
+				if(arr1[i] !== arr2[i]){
+					return false;
+				}
+			} 
+			return true;
+		},
+		//数组中删除元素
+		removeElementFromArray: function(array, ele){
+			for(var i = 0,len = array.length;i < len;i++){
+				if(array[i] === ele){
+					array.splice(i,1);
+					len --;
+					i --;
+				}
+			}
+			return array;
+		},
+		//挑选对象属性值，返回新对象
+		pick: function(obj){
+			var names = this.toArray(arguments).slice(1),
+				target = {};
+				console.log(names);
+			for(var i = 1, len = names.length; i < len; i++){
+				var key = names[i];
+				target[key] = obj[key];
+				console.log(key);
+			}
+			return target;
 		},
 		//类型检测
 		typeOf:function(arg){
@@ -61,6 +85,14 @@ module.exports = (function(){
 			}else{
 				return arg1 != arg1 && arg2 != arg2;
 			}
+		},
+		//字符串重复
+		strRepeat: function(str, count){
+			var text = '';
+			for(var i = 0;i < count;i++){
+				text += str
+			}
+			return text;
 		},
 		//深拷贝
 		deepCopy: function(obj){
@@ -106,23 +138,26 @@ module.exports = (function(){
 				xhr.open(method, url, true);
 				xhr.send(data)
 			});
-		}
-		,
-		//lazyload 懒加载图片
-		lazyload:function(url){
-
 		},
-		//计时器
-		Timer: function(){
-
+		//是否为电话号码
+		isPhone(str){
+			return /^1[3|4|5|7|8]\d{9}$/.test(str);
 		},
-		//选择器 
-		select: function(str){
-			var node = document.querySelectorAll(str);
+		//是否为邮箱地址
+		isEmail(str){
+			return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(str);
 		},
-		//css
-		css: function(dom, str){
+		//获取css类
+		getCss: function(dom){
 			return dom.classList;
+		},
+		//添加css类
+		addcssClass: function(dom, className){
+			dom.classList.push(className);
+		},
+		//删除css类
+		removeClass: function(dom, className){
+			this.removeElementFromArray(dom.classList, className);
 		}
 	}
 })();
