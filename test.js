@@ -1,68 +1,58 @@
-const redux = require('redux');
+const { createStore, applyMiddleware} = require('redux');
+const reduxPromise = require('redux-promise');
+const { createAction } = require('redux-actions');
+const GET_DATA = "GET_DATA";
 
-let reducer = function(state = {count: 0}, actions){
-	switch (actions.type){
-		case "MIDDLEWARE_TEST":
-			console.log('=====TEST=====');
-			state.count = state.count + 1;
-		default : return state; 
-	} 
+const getData = () => {
+	return new Promise((resolve, reject) => {
+		setTimeout(()=>{
+			resolve('success');
+		}, 500)
+	})
 }
 
-let middleware1 = function(store){
-	return function(dispatch){
-		return function(action){
-			console.log('middleware1 before');
-			dispatch(action);
-			console.log('middleware1 after');
-		}
+let reducers = function(state, action){
+	switch (action.type) {
+		case GET_DATA: 
+			//console.log(state);
+			state.text = action.payload;
+		default:
+			return state;
 	}
 }
 
-let middleware2 = function(store){
-	return function(dispatch){
-		return function(action){
-			console.log('middleware2 before');
-			dispatch(action);
-			console.log('middleware2 after');
-		}
+let middleWare = store => next => actions => {
+	console.log(actions);
+	next(actions);
+	console.log('------' + store.getState().text);
+	return actions;
+}
+
+let initialState = {
+	text: 'init'
+}
+
+let store = createStore(reducers, initialState, applyMiddleware(
+		middleWare,
+		reduxPromise
+	));
+
+// let actions = {
+// 	type: GET_DATA,
+// 	payload: getData()
+// }
+// // // 
+function actionCreator(){
+	return {
+		text: getData()
 	}
 }
 
-let middleware3 = function(store){
-	return function(dispatch){
-		return function(action){
-			console.log('middleware3 before');
-			dispatch(action);
-			console.log(store.getState());
-			console.log('middleware3 after');
-		}
-	}
-}
 
-let store =	redux.createStore(
-	reducer,
-	redux.applyMiddleware(
-		middleware1,
-		middleware2,
-		middleware3
-	)
-)
+let actions = createAction(GET_DATA, actionCreator)();
 
-let action = {
-	type: "MIDDLEWARE_TEST"
-}
+console.log(actions);
 
-let a = store.subscribe(()=>{
-	console.log('subscribe');
-	console.log(store.getState());
-})
-
-store.dispatch(action);
-
-a();
-console.log(a);
-
-
+store.dispatch(actions);
 
 
