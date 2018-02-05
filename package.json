@@ -24,6 +24,7 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "redux-promise": "^0.5.3",
     "reselect": "^3.0.1",
     "style-loader": "^0.19.1",
     "underscore": "^1.8.3",
