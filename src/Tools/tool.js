@@ -1,13 +1,11 @@
 //建立简单类库
-
-module.exports = (function(){
+(function(global){
 	//定义私有变量
 	var ArrProto = Array.prototype,
 		StrProto = String.prototype,
 		ObjProto = Object.prototype;
 
-
-	return {
+	var _ = {
 		//转化成数组
 		toArray:function(){
 			try{
@@ -160,7 +158,13 @@ module.exports = (function(){
 			this.removeElementFromArray(dom.classList, className);
 		}
 	}
-})();
+
+	if(typeof module == "undefined"){
+		global._ = _;
+	}else{
+		module.exports = _;
+	}
+})(this)
 
 //几种方法实现同一方法
 
