@@ -31,7 +31,7 @@ module.exports = {
 			use:[{
 				loader: "style-loader"
 			},{
-				loader: "css-loader"
+				loader: "css-loader?modules&localIdentName=[local]___[hash:base64:5]"
 			},{
 				loader: "less-loader"
 			}]

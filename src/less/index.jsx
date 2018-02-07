@@ -13,7 +13,7 @@ import s from './index.less'
 
 class HomePage extends Component{
 	render() {
-		return <div>
+		return <div className = {s.global}>
 			<HomeHeader />
 			<KingKong />
 			<Banner />
@@ -28,4 +28,4 @@ class HomePage extends Component{
 
 let root = document.getElementById('root');
 
-render(<HomePage />, root)
+render(<HomePage />, root);

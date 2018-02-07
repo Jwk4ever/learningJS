@@ -3,8 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>test</title>
+	<style>
+		.container{
+			display: flex;
+			flex-direction: row;
+		}
+		.block1{
+			background-color: green;
+			width: 200px;
+			height: 100px;
+		}
+		.block2{
+			background-color: yellow;
+			width: 300px;
+			height: 100px;
+		}
+		.item{
+			flex:1 0 0;
+			height: 100px;
+		}
+		.item2{
+			flex: 2 0 0;
+			height: 100px;
+		}
+	</style>
 </head>
 <body>
+	<div class="container">
+		<div class="item"></div>
+		<div class="block1"></div>
+		<div class="item"></div>
+		<div class="block2"></div>
+		<div class="item2"></div>
+	</div>
 	<!-- <script src='src/week1/tool.js'></script> -->
 	<!-- <script	src='src/Tools/tool.js'></script> -->
 	<!-- <script src='node_modules/underscore/underscore.js'></script> -->

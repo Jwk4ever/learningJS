@@ -112,6 +112,19 @@
 			}
 			return newObj
 		},
+		//给函数结果增加缓存,应该有问题
+		memorize: function(func){
+			var args = null,
+				result = null;
+			return function(){
+				if(arguments != args){
+					return result;
+				}
+				args = arguments;
+				result = func.apply(null, arguments);
+				return result;
+			}
+		},
 		//返回随机数
 		random: function(lowerValue, upperValue){
 			return Math.floor(Math.random()*(upperValue - lowerValue)) + lowerValue;
@@ -138,12 +151,37 @@
 			});
 		},
 		//是否为电话号码
-		isPhone(str){
+		isPhone: function(str){
 			return /^1[3|4|5|7|8]\d{9}$/.test(str);
 		},
 		//是否为邮箱地址
-		isEmail(str){
+		isEmail: function(str){
 			return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(str);
+		},
+		//获取滚动条距离页面顶部的距离
+		getScrollTop: function(){
+			return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+		},
+		//设置滚动条高度
+		setScrollTop: function(val){
+			/**
+			*	param 1 x轴位置
+			*	param 2 y轴位置
+			**/
+			window.scrollTo(0,val);
+		},
+		//获取元素的在页面中的位置
+		offset: function(ele){
+			var pos = {
+				left : 0,
+				top : 0
+			}
+			while(ele){
+				pos.left += ele.offsetLeft;
+				pos.top += ele.offsetTop;
+				ele = ele.offsetParent;
+			}
+			return pos;
 		},
 		//获取css类
 		getCss: function(dom){
