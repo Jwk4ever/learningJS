@@ -11,7 +11,15 @@ import Footer from './components/Footer/index.jsx'
 
 import s from './index.less'
 
+import data from '../../mock/mock.js'
+import { get } from '../utils'
+
 class HomePage extends Component{
+	componentDidMount() {
+		get('http://g.cn').then((result)=>{
+			console.log(result);
+		});
+	}
 	render() {
 		return <div className = {s.global}>
 			<HomeHeader />
@@ -27,5 +35,6 @@ class HomePage extends Component{
 }
 
 let root = document.getElementById('root');
+
 
 render(<HomePage />, root);

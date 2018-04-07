@@ -18,8 +18,8 @@ render(
 	root
 )
 
-import React ,{ Component }from 'react'
-import { render } from 'react-dom'
+// import React ,{ Component }from 'react'
+// import { render } from 'react-dom'
 
-let root = document.getElementById('root');
+// let root = document.getElementById('root');
 
