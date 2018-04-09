@@ -1,0 +1,64 @@
+
+html {
+	font-size: 10px;
+}
+
+body {
+	font-size: 0.16rem;
+}
+
+.big {
+	width: 30rem;
+	height: 30rem;
+}
+
+.middle {
+	width: 20rem;
+	height: 20rem;
+}
+
+.small {
+	width: 10rem;
+	height: 10rem;
+}
+
+.pink {
+	background-color: pink;
+}
+
+.red {
+	background-color: red;
+}
+
+.green {
+	background-color: green;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.orange {
+	background-color: orange;
+}
+
+.purple {
+	background-color: purple;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.border {
+	border: 0.1rem solid black;
+}
+
+
+
+
+
+
+
+
+

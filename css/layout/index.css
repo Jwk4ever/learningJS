@@ -1,0 +1,57 @@
+@import url('../index.css');
+
+.container {
+	font-size: 1.6rem
+}
+
+.table-box {
+	border-collapse: collapse;
+}
+
+.float-box {
+	
+}
+
+.f-l {
+	float: left;
+}
+
+.f-r {
+	float: right;
+}
+
+.position-box {
+
+}
+
+.pos-rel {
+	position: relative;
+}
+
+.pos-abs {
+	position: absolute;
+}
+
+.ml-10 {
+	margin-left: 10rem;
+}
+
+.ml-20 {
+	margin-left: 20rem;
+}
+
+.mr-10 {
+	margin-right: 10rem;
+}
+
+.flex-box {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.flex-item {
+	flex: 0 1 auto;
+}
+
+
+

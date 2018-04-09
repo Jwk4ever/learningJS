@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>layout 示例</title>
+	<link rel="stylesheet" href="./index.css">
+<body>
+	<h2>布局示例</h2>
+	<ul>
+		<li>table</li>
+		<li>
+			float 三栏布局
+			<div class='float-box big border'>
+				<div class="middle f-l">
+					<div class="small f-l red"></div>
+					<div class="small f-r yellow"></div>
+				</div>
+				<div class="small f-r blue"></div>
+			</div>
+		</li>
+		<li>
+			position 三栏布局
+			<div class="position-box pos-rel border big">
+				<div class="small blue pos-abs"></div>
+				<div class="small red pos-abs ml-10"></div>
+				<div class="small yellow pos-abs ml-20"></div>
+			</div>
+		</li>
+		<li>
+			flex 三栏布局
+			<div class="flex-box big border">
+				<div class="flex-item small red"></div>
+				<div class="flex-item small blue"></div>
+				<div class="flex-item small yellow"></div>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>
