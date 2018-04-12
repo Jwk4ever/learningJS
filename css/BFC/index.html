@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Block Formating Context</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<h2>BLC 块状格式化上下文 </h2>
+	<ul>
+		<li>
+			<h3>清除浮动</h3>
+			<div class="container border middle">
+				<div class="f-l small red">浮动元素</div>	
+				<div style="overflow: hidden">
+					你好你好你好你好你好你好你好你好你好你好你好你好你好
+					你好你好你好你好你好你好你好你好你好你好你好你好你好
+					你好你好你好你好你好你好你好你好你好你好你好你好你好
+					你好你好你好你好你好你好你好你好你好你好你好你好你好
+				</div>
+			</div>
+		</li>
+		<li>
+			<h3>清除 margin-collapse </h3>
+			<div class="big blue" >
+				<div class="item small red margin-5"></div>
+				<div style="overflow: hidden">
+					<div class="item small red margin-5"></div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>
