@@ -1,25 +1,21 @@
-import React, { Component } from 'react'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import { render } from 'react-dom'
-import App from './containers/App'
-import todoApp from './reducers/reducers'
+import React, { Component } from 'react';
+import todoapp from './reducers/index.js';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import App from './containers/App.jsx'
 
+//console.log(reducer);
 
-let root = document.getElementById('root');
-
-let store = createStore(todoApp);
+let store = createStore(todoapp);
 
 render(
-	<Provider store = { store }>
+	<Provider store={ store }>
 		<App />
-	</Provider>
-		,
-	root
-)
+	</Provider>,
+	document.getElementById('root')
+	)
 
-// import React ,{ Component }from 'react'
-// import { render } from 'react-dom'
 
-// let root = document.getElementById('root');
+
 

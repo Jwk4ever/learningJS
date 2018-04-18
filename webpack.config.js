@@ -5,7 +5,7 @@ const webpack = require('webpack'),
 	  ExtractTextPlugin = require('extract-text-webpack-plugin');
 	  REACT = "react-demo",
 	  LESS = "less";
-	  project = LESS;
+	  project = REACT;
 
 module.exports = {
 	entry: path.resolve(__dirname,'./src/' + project+ '/index.jsx'),
