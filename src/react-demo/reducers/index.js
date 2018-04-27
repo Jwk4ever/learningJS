@@ -1,8 +1,13 @@
 import { combineReducers } from 'redux';
+import {
+	ADD_TODO,
+	TOGGLE_TODO,
+	CHANGE_FILTER
+} from '../actions/actions.js'
 
 function todos (state = [], action){
 	switch (action.type){
-		case "ADD_TODO":
+		case ADD_TODO:
 			//let {id, content, done} = action.payload;
 			return [
 				...state,
@@ -11,23 +16,36 @@ function todos (state = [], action){
 					content: action.payload.content,
 					done: action.payload.done
 				}
-			]
-		case "TOGGLE_TODO":
+			];
+		case TOGGLE_TODO:
 			//let { id } = action.payload;
+			console.log('inToggleTodo');
+			console.log(state.slice(0, action.payload.id));
+			console.log(state[action.payload.id]);
+			console.log(state.slice(action.payload.id + 1));
 			return [...state.slice(0, action.payload.id),
 					Object.assign({}, state[action.payload.id], {
 						done: true
 					}),
 					...state.slice(action.payload.id + 1)
-					]  ;
+					];
 		default: 
 			return state;
 	}
 }
 
+function filters(state = 'ALL', action){
+	switch (action.type){
+		case CHANGE_FILTER:
+			return action.payload.filter;
+		default:
+			return state;
+	}
+}
 
 const todoapp =  combineReducers({				
-	todos
+	todos,
+	filters
 })
 
 // console.log(todoapp);

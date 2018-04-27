@@ -14,3 +14,12 @@ let baseAjax = function(method, url, data = null){
 export let get = baseAjax.bind(null, 'GET');
 
 export let post = baseAjax.bind(null, 'POST');
+
+export let wait = (time = 100, val = 'val', isResolve = true) => {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			isResolve && resolve(val);
+			reject(val);
+		}, time)
+	})
+}

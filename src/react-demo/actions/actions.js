@@ -1,6 +1,7 @@
 
-const ADD_TODO = 'ADD_TODO';
-const TOGGLE_TODO = 'TOGGLE_TODO';
+export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const CHANGE_FILTER = 'CHANGE_FILTER';
 
 let id = 0;
 
@@ -20,6 +21,15 @@ export function toggleTodo (id){
 		type: TOGGLE_TODO,
 		payload: {
 			id
+		}
+	}
+}
+
+export function changeFilter (filter){
+	return {
+		type: CHANGE_FILTER,
+		payload: {
+			filter
 		}
 	}
 }

@@ -2,33 +2,48 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import AddTodoItem from '../components/AddTodoItem.jsx';
 import TodoList from '../components/TodoList.jsx';
+import FilterList from '../components/FilterList.jsx';
 import { connect } from 'react-redux';
 import * as todoAction from '../actions/actions.js'
 
 class App extends Component {
 	render (){
-		let { boundTodoAction, toggleTodo, todos} = this.props;
+		let { boundTodoAction, todos} = this.props;
+		let { addTodo, toggleTodo, changeFilter } = boundTodoAction;
 		return (
 			<div>
-				<AddTodoItem addtodo = { boundTodoAction.addTodo }/>
-				<TodoList todos = { todos } toggleTodo = { boundTodoAction.toggleTodo}/>
+				<AddTodoItem addtodo = { addTodo }/>
+				<TodoList todos = { todos } toggleTodo = { toggleTodo}/>
+				<FilterList changeFilter = { changeFilter }/>
 			</div>
 			) 
 		}
 	}
 
 let mapStateToProps = (state) => {
-	let { todos } = state; 
-	return {
-		todos
+	let { todos , filters} = state; 
+	//console.log(todos);
+	switch (filters){
+		case "DONE":
+			return {
+				todos: todos.filter(item => item.done)
+			};
+		case "UNDONE":
+			return {
+				todos: todos.filter(item => !item.done) 
+			};
+		case "ALL":
+		default:
+			return { todos };
 	}
 }
 
 let mapDispatchToProps = (dispatch) => {
-	let { addTodo, toggleTodo }	= todoAction;
+	let { addTodo, toggleTodo, changeFilter }	= todoAction;
 	let boundTodoAction = bindActionCreators({
 			addTodo,
-			toggleTodo
+			toggleTodo,
+			changeFilter
 		}, dispatch);
 	return {
 		boundTodoAction

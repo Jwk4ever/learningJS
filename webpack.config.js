@@ -3,10 +3,8 @@ const webpack = require('webpack'),
 	  process = require('process'),
 	  htmlWebpackPlugin = require('html-webpack-plugin'),
 	  ExtractTextPlugin = require('extract-text-webpack-plugin');
-	  REACT = "react-demo",
-	  LESS = "less";
-	  project = REACT;
 
+const project = process.argv[3];
 module.exports = {
 	entry: path.resolve(__dirname,'./src/' + project+ '/index.jsx'),
 	output: {
