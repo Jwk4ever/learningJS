@@ -2,10 +2,8 @@ const webpack = require('webpack'),
 	  path = require('path'),
 	  htmlWebpackPlugin = require('html-webpack-plugin'),
 	  ExtractTextPlugin = require('extract-text-webpack-plugin');
-	  REACT = "react-demo",
-	  LESS = "less";
-	  project = LESS;
 
+const project = process.argv[3];
 module.exports = {
 	entry: path.resolve(__dirname,'./src/' + project+ '/index.jsx'),
 	output: {

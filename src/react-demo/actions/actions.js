@@ -1,34 +1,35 @@
+
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+export const CHANGE_FILTER = 'CHANGE_FILTER';
 
-export const VisibilityFilters = {
-	SHOW_ALL: 'SHOW_ALL',
-	SHOW_COMPLETED: 'SHOW_COMPLETED',
-	SHOW_ACTIVE: 'SHOW_ACTIVE'
-};
+let id = 0;
 
-let todoID = 0;
-
-export function addTodo (text) {
+export function addTodo (val){
 	return {
 		type: ADD_TODO,
-		id: todoID ++,
-		text
+		payload: {
+			id: id ++ ,
+			done: false,
+			content: val
+		}
 	}
 }
 
-export function toggleTodo (id) {
-	//console.log(id);
+export function toggleTodo (id){
 	return {
 		type: TOGGLE_TODO,
-		id
+		payload: {
+			id
+		}
 	}
 }
 
-export function setVisibilityFilter (filter) {
+export function changeFilter (filter){
 	return {
-		type: SET_VISIBILITY_FILTER,
-		filter
+		type: CHANGE_FILTER,
+		payload: {
+			filter
+		}
 	}
 }
