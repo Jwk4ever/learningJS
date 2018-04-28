@@ -1,6 +1,5 @@
 const webpack = require('webpack'),
 	  path = require('path'),
-	  process = require('process'),
 	  htmlWebpackPlugin = require('html-webpack-plugin'),
 	  ExtractTextPlugin = require('extract-text-webpack-plugin');
 	  REACT = "react-demo",
@@ -22,9 +21,14 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /(\.js|\.jsx)$/,
-			use: {
+			use: [{
 				loader: "babel-loader"
-			},
+			},{
+				loader: 'aaloadertest',
+				options: {
+					name: 'jiawekang'
+				}
+			}],
 			exclude:/node_modules/
 		},{
 			test: /\.less/,
@@ -43,3 +47,7 @@ module.exports = {
 		})
 	]
 }
+
+
+
+
