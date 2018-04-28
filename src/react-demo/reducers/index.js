@@ -18,11 +18,6 @@ function todos (state = [], action){
 				}
 			];
 		case TOGGLE_TODO:
-			//let { id } = action.payload;
-			console.log('inToggleTodo');
-			console.log(state.slice(0, action.payload.id));
-			console.log(state[action.payload.id]);
-			console.log(state.slice(action.payload.id + 1));
 			return [...state.slice(0, action.payload.id),
 					Object.assign({}, state[action.payload.id], {
 						done: true
