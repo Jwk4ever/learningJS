@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import TodoItem from './Todo.jsx'
 
 export default class TodoList extends Component {
+	// shouldComponentUpdate (){
+
+	// }
 	render (){
 		let { todos, toggleTodo} = this.props;
 		return (
