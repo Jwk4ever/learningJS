@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { 
@@ -146,8 +147,47 @@ render(
 	</BrowserRouter>,
 	document.getElementById('app')
 	);
+=======
+import { wait } from '../utils';
+
+class A {
+	@loading
+	async get (){
+		let result = await wait();
+		console.log(result);
+	}
+	// @loading
+	// sayName (){
+	// 	console.log('test');
+	// }
+}
+
+// function loading(target, name, descriptor){
+// 	let _val = descriptor.value;
+// 	return descriptor;
+// }
+
+function loading(target, name, descriptor){
+	let _val = descriptor.value;
+	_val(); 
+	return descriptor;
+}
+
+let a = new A();
+
+a.sayName();
+>>>>>>> parent of 4dcd4a8... 添加 throttle 函数
 
 
+var a = new Promise((resolve) => {
+	resolve({a: 1});
+})
+
+<<<<<<< HEAD
 
 
-
+=======
+a.then((val) => {
+	console.log(val.a);
+})
+>>>>>>> parent of 4dcd4a8... 添加 throttle 函数

@@ -7,9 +7,6 @@ import { connect } from 'react-redux';
 import * as todoAction from '../actions/actions.js'
 
 class App extends Component {
-	componentWillReceiveProps (nextProps){
-		console.log(nextProps);
-	}
 	render (){
 		let { boundTodoAction, todos} = this.props;
 		let { addTodo, toggleTodo, changeFilter } = boundTodoAction;
