@@ -10,7 +10,8 @@
 
 const add = '2+b';
 const minus = '2-b';
-
+const add = '1+a'
+const minus = '1-b'
 var redux = require('redux');
 
 function reducer(action){
