@@ -8,6 +8,8 @@
 // 	console.log(val)
 // })
 
+const add = '1+a'
+const minus = '1-b'
 var redux = require('redux');
 
 function reducer(action){
